@@ -8,4 +8,9 @@ def index(request: HttpRequest) -> HttpResponse:
 
 
 def about(request: HttpRequest) -> HttpResponse:
-    return HttpResponse("About")
+    context = {
+        "title": "Home - About us",
+        "content": "About us",
+        "text_on_page": "About this cool store",
+    }
+    return render(request, "main/about.html", context)
