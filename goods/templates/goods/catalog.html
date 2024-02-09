@@ -40,282 +40,30 @@
               <button type="submit" class="btn btn-primary mx-3 mt-3">Apply</button>
           </form>
       </div>
-      <!-- Product card -->
-      <div class="col-lg-4 col-md-6 p-4">
+       {% for product in goods %}
+       <div class="col-lg-4 col-md-6 p-4">
           <div class="card border-primary rounded custom-shadow">
-              <img src="../deps/images/goods/set of tea table and three chairs.jpg" class="card-img-top" alt="...">
+              <img src="{% static product.image %}" class="card-img-top" alt="...">
               <div class="card-body">
                   <a href="../goods/product.html">
-                      <p class="card-title">Tea table and three chairs</p>
+                      <p class="card-title">{{ product.name }}</p>
                   </a>
-                  <p class="card-text text-truncate">Set of three chairs and a designer table for the living room.</p>
+                  <p class="card-text text-truncate">{{ product.description }}</p>
                   <p class="product_id">id: 02265</p>
                   <div class="d-flex justify-content-between">
-                      <p><s>100</s> $</p>
-                      <p><strong>90.00 $</strong></p>
-                      <span class="badge bg-warning text-dark">Discount 10.00 %</span>
-                      <!-- <p><strong>100.00 $</strong></p> -->
+{#                      <p><s>100</s> $</p>#}
+{#                      <p><strong>90.00 $</strong></p>#}
+{#                      <span class="badge bg-warning text-dark">Discount 10.00 %</span>#}
+                      <p><strong>{{ product.price }} $</strong></p>
                       <a href="#" class="btn add-to-cart">
-                          <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                          <img class="mx-1" src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
                               width="32" height="32">
                       </a>
                   </div>
               </div>
           </div>
-      </div>
-      <!-- Product card -->
-      <div class="col-lg-4 col-md-6 p-4">
-          <div class="card border-primary rounded custom-shadow">
-              <img src="../deps/images/goods/set of tea table and two chairs.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                  <a href="#">
-                      <p class="card-title">Tea table and two chairs</p>
-                  </a>
-                  <p class="card-text text-truncate">Set of a table and two chairs in a minimalist style.</p>
-                  <p class="product_id">id: 02265</p>
-                  <div class="d-flex justify-content-between">
-                      <p><s>100</s> $</p>
-                      <p><strong>90.00 $</strong></p>
-                      <span class="badge bg-warning text-dark">Discount 10.00 %</span>
-                      <!-- <p><strong>100.00 $</strong></p> -->
-                      <a href="#" class="btn add-to-cart">
-                          <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                              width="32" height="32">
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- Product card -->
-      <div class="col-lg-4 col-md-6 p-4">
-          <div class="card border-primary rounded custom-shadow">
-              <img src="../deps/images/goods/double bed.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                  <a href="#">
-                      <p class="card-title">Double bed</p>
-                  </a>
-                  <p class="card-text text-truncate">Double bed with headrest and generally very orthopedic.</p>
-                  <p class="product_id">id: 02265</p>
-                  <div class="d-flex justify-content-between">
-                      <p><s>100</s> $</p>
-                      <p><strong>90.00 $</strong></p>
-                      <span class="badge bg-warning text-dark">Discount 10.00 %</span>
-                      <!-- <p><strong>100.00 $</strong></p> -->
-                      <a href="#" class="btn">
-                          <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                              width="32" height="32">
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- Product card -->
-      <div class="col-lg-4 col-md-6 p-4">
-          <div class="card border-primary rounded custom-shadow">
-              <img src="../deps/images/goods/kitchen table.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                  <a href="#">
-                      <p class="card-title">Kitchen table with sink</p>
-                  </a>
-                  <p class="card-text text-truncate">Kitchen dining table with built-in sink and chairs.</p>
-                  <p class="product_id">id: 02265</p>
-                  <div class="d-flex justify-content-between">
-                      <p><s>100</s> $</p>
-                      <p><strong>90.00 $</strong></p>
-                      <span class="badge bg-warning text-dark">Discount 10.00 %</span>
-                      <!-- <p><strong>100.00 $</strong></p> -->
-                      <a href="#" class="btn">
-                          <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                              width="32" height="32">
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- Product card -->
-      <div class="col-lg-4 col-md-6 p-4">
-          <div class="card border-primary rounded custom-shadow">
-              <img src="../deps/images/goods/kitchen table 2.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                  <a href="#">
-                      <p class="card-title">Kitchen table with built-in</p>
-                  </a>
-                  <p class="card-text text-truncate">Kitchen table with built-in stove and sink. Lots of shelves and overall beautiful.</p>
-                  <p class="product_id">id: 02265</p>
-                  <div class="d-flex justify-content-between">
-                      <p><s>100</s> $</p>
-                      <p><strong>90.00 $</strong></p>
-                      <span class="badge bg-warning text-dark">Discount 10.00 %</span>
-                      <!-- <p><strong>100.00 $</strong></p> -->
-                      <a href="#" class="btn">
-                          <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                              width="32" height="32">
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- Product card -->
-      <div class="col-lg-4 col-md-6 p-4">
-          <div class="card border-primary rounded custom-shadow">
-              <img src="../deps/images/goods/corner sofa.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                  <a href="#">
-                      <p class="card-title">Corner sofa for living room</p>
-                  </a>
-                  <p class="card-text text-truncate">Corner sofa, converts into a double bed, perfect for the living room and entertaining guests!</p>
-                  <p class="product_id">id: 02265</p>
-                  <div class="d-flex justify-content-between">
-                      <p><s>100</s> $</p>
-                      <p><strong>90.00 $</strong></p>
-                      <span class="badge bg-warning text-dark">Discount 10.00 %</span>
-                      <!-- <p><strong>100.00 $</strong></p> -->
-                      <a href="#" class="btn">
-                          <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                              width="32" height="32">
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- Product card -->
-      <div class="col-lg-4 col-md-6 p-4">
-          <div class="card border-primary rounded custom-shadow">
-              <img src="../deps/images/goods/bedside table.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                  <a href="#">
-                      <p class="card-title">Bedside table</p>
-                  </a>
-                  <p class="card-text text-truncate">Bedside table with two drawers (flower not included).</p>
-                  <p class="product_id">id: 02265</p>
-                  <div class="d-flex justify-content-between">
-                      <p><s>100</s> $</p>
-                      <p><strong>90.00 $</strong></p>
-                      <span class="badge bg-warning text-dark">Discount 10.00 %</span>
-                      <!-- <p><strong>100.00 $</strong></p> -->
-                      <a href="#" class="btn">
-                          <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                              width="32" height="32">
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- Product card -->
-      <div class="col-lg-4 col-md-6 p-4">
-          <div class="card border-primary rounded custom-shadow">
-              <img src="../deps/images/goods/sofa.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                  <a href="#">
-                      <p class="card-title">Ordinary sofa</p>
-                  </a>
-                  <p class="card-text text-truncate">Sofa, also known as an ordinary sofa, nothing remarkable to describe.</p>
-                  <p class="product_id">id: 02265</p>
-                  <div class="d-flex justify-content-between">
-                      <p><s>100</s> $</p>
-                      <p><strong>90.00 $</strong></p>
-                      <span class="badge bg-warning text-dark">Discount 10.00 %</span>
-                      <!-- <p><strong>100.00 $</strong></p> -->
-                      <a href="#" class="btn">
-                          <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                              width="32" height="32">
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- Product card -->
-      <div class="col-lg-4 col-md-6 p-4">
-          <div class="card border-primary rounded custom-shadow">
-              <img src="../deps/images/goods/office chair.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                  <a href="#">
-                      <p class="card-title">Office chair</p>
-                  </a>
-                  <p class="card-text text-truncate">Description of the product, about how cool it is, but it’s a chair, what can I say...</p>
-                  <p class="product_id">id: 02265</p>
-                  <div class="d-flex justify-content-between">
-                      <p><s>100</s> $</p>
-                      <p><strong>90.00 $</strong></p>
-                      <span class="badge bg-warning text-dark">Discount 10.00 %</span>
-                      <!-- <p><strong>100.00 $</strong></p> -->
-                      <a href="#" class="btn">
-                          <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                              width="32" height="32">
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- Product card -->
-      <div class="col-lg-4 col-md-6 p-4">
-          <div class="card border-primary rounded custom-shadow">
-              <img src="../deps/images/goods/plants.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                  <a href="#">
-                      <p class="card-title">Plant</p>
-                  </a>
-                  <p class="card-text text-truncate">A plant to decorate your interior will give freshness and serenity to the environment.</p>
-                  <p class="product_id">id: 02265</p>
-                  <div class="d-flex justify-content-between">
-                      <p><s>100</s> $</p>
-                      <p><strong>90.00 $</strong></p>
-                      <span class="badge bg-warning text-dark">Discount 10.00 %</span>
-                      <!-- <p><strong>100.00 $</strong></p> -->
-                      <a href="#" class="btn">
-                          <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                              width="32" height="32">
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- Product card -->
-      <div class="col-lg-4 col-md-6 p-4">
-          <div class="card border-primary rounded custom-shadow">
-              <img src="../deps/images/goods/flower.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                  <a href="#">
-                      <p class="card-title">Stylized flower</p>
-                  </a>
-                  <p class="card-text text-truncate">Designer flower (possibly artificial) for interior decoration.</p>
-                  <p class="product_id">id: 02265</p>
-                  <div class="d-flex justify-content-between">
-                      <p><s>100</s> $</p>
-                      <p><strong>90.00 $</strong></p>
-                      <span class="badge bg-warning text-dark">Discount 10.00 %</span>
-                      <!-- <p><strong>100.00 $</strong></p> -->
-                      <a href="#" class="btn">
-                          <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                              width="32" height="32">
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- Product card -->
-      <div class="col-lg-4 col-md-6 p-4">
-          <div class="card border-primary rounded custom-shadow">
-              <img src="../deps/images/goods/strange table.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                  <a href="#">
-                      <p class="card-title">Bedside table</p>
-                  </a>
-                  <p class="card-text text-truncate">Table, rather strange in appearance, but suitable for placement next to the bed.</p>
-                  <p class="product_id">id: 02265</p>
-                  <div class="d-flex justify-content-between">
-                      <p><s>100</s> $</p>
-                      <p><strong>90.00 $</strong></p>
-                      <span class="badge bg-warning text-dark">Discount 10.00 %</span>
-                      <!-- <p><strong>100.00 $</strong></p> -->
-                      <a href="#" class="btn">
-                          <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                              width="32" height="32">
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>
+       </div>
+      {% endfor %}
 
   </div>
   <!-- Pagination -->
