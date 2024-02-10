@@ -12,6 +12,9 @@ class Categories(models.Model):
         verbose_name = "category"
         verbose_name_plural = "categories"
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class Products(models.Model):
     name = models.CharField(max_length=150, unique=True)
@@ -33,3 +36,6 @@ class Products(models.Model):
         db_table = "product"
         verbose_name = "product"
         verbose_name_plural = "products"
+
+    def __str__(self) -> str:
+        return f"{self.name} Quantity - {self.quantity}"
