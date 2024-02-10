@@ -39,3 +39,6 @@ class Products(models.Model):
 
     def __str__(self) -> str:
         return f"{self.name} Quantity - {self.quantity}"
+
+    def display_id(self) -> str:
+        return f"{self.id:05}"
