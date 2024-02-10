@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from django.db import models
 
 
@@ -42,3 +44,8 @@ class Products(models.Model):
 
     def display_id(self) -> str:
         return f"{self.id:05}"
+
+    def sell_price(self) -> Decimal:
+        if self.discount:
+            return round(self.price - self.price * self.discount / 100, 2)
+        return self.price
