@@ -10,7 +10,7 @@ def catalog(request: HttpRequest) -> HttpResponse:
     return render(request, "goods/catalog.html", context=context)
 
 
-def product(request: HttpRequest, product_id: int) -> HttpResponse:
-    product = get_object_or_404(Products, id=product_id)
+def product(request: HttpRequest, product_slug: str) -> HttpResponse:
+    product = get_object_or_404(Products, slug=product_slug)
     context = {"product": product}
     return render(request, "goods/product.html", context=context)
