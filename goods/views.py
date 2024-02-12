@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 
@@ -11,7 +12,9 @@ def catalog(request: HttpRequest, category_slug: str) -> HttpResponse:
         goods = get_list_or_404(
             Products.objects.filter(category__slug=category_slug)
         )
-    context = {"title": "Home - Catalog", "goods": goods}
+    paginator = Paginator(goods, per_page=3)
+    current_page = paginator.page(1)
+    context = {"title": "Home - Catalog", "goods": current_page}
     return render(request, "goods/catalog.html", context=context)
 
 
