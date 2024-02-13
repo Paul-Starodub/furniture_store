@@ -1,4 +1,4 @@
-from django.db.models import Q, QuerySet
+from django.db.models import QuerySet
 
 from goods.models import Products
 
