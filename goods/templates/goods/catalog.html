@@ -52,6 +52,13 @@
               <button type="submit" class="btn btn-primary mx-3 mt-3">Apply</button>
           </form>
       </div>
+      {% if request.GET.q %}
+        <h3 class="mt-4">Search results for the query {{ request.GET.q }}</h3>
+        {% if not goods %}
+          <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
+          <h2 class="mt-4">No results found for your search</h2>
+        {% endif %}
+      {% endif %} 
        {% for product in goods %}
        <div class="col-lg-4 col-md-6 p-4">
           <div class="card border-primary rounded custom-shadow">
@@ -60,33 +67,50 @@
             {% else %}
               <img src="{% static "deps/images/Not found image.png" %}" class="card-img-top" alt="{{ product.name }}">
             {% endif %} 
-              <div class="card-body">
-                  <a href="{% url 'catalog:product' product.slug %}">
-                      <p class="card-title">{{ product.name }}</p>
-                  </a>
-                  <p class="card-text text-truncate">{{ product.description|truncatechars:35 }}</p>
-                  <p class="product_id">id: {{ product.display_id }}</p>
-                  <div class="d-flex justify-content-between">
-                      {% if product.discount  %}
-                        <p><s>{{ product.price }}</s> $</p>
-                        <p><strong>{{ product.sell_price }} $</strong></p>
-                        <span class="badge bg-warning text-dark">Discount {{ product.discount }} %</span>
-                      {% else %}
-                        <p><strong>{{ product.price }} $</strong></p>
-                      {% endif %}
-                      <a href="#" class="btn add-to-cart">
-                          <img class="mx-1" src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
-                              width="32" height="32">
-                      </a>
-                  </div>
-              </div>
+                <div class="card-body">
+                    <a href="{% url 'catalog:product' product.slug %}">
+                        <p class="card-title">
+                          {% autoescape off %}
+                            {% if product.headline %}
+                              {{ product.headline }}
+                            {% else %}
+                              {{ product.name }}
+                            {% endif %}
+                          {% endautoescape %}
+                        </p>
+                    </a>
+                    <p class="card-text text-truncate">
+                        {% autoescape off %}
+                            {% if product.bodyline %}
+                              {{ product.bodyline|truncatechars:95 }}
+                            {% else %}
+                              {{ product.description|truncatechars:95 }}
+                            {% endif %}
+                        {% endautoescape %}
+                    </p>
+                    <p class="product_id">id: {{ product.display_id }}</p>
+                    <div class="d-flex justify-content-between">
+                        {% if product.discount  %}
+                          <p><s>{{ product.price }}</s> $</p>
+                          <p><strong>{{ product.sell_price }} $</strong></p>
+                          <span class="badge bg-warning text-dark">Discount {{ product.discount }} %</span>
+                        {% else %}
+                          <p><strong>{{ product.price }} $</strong></p>
+                        {% endif %}
+                        <a href="#" class="btn add-to-cart">
+                            <img class="mx-1" src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
+                                width="32" height="32">
+                        </a>
+                    </div>
+                </div>
           </div>
        </div>
       {% endfor %}
 
   </div>
   <!-- Pagination -->
-  <nav aria-label="Page navigation example">
+  {% if goods %}
+  	<nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center my-4">
         <div class="custom-shadow d-flex">
             <li class="page-item {% if not goods.has_previous %}disabled{% endif %}">
@@ -109,6 +133,7 @@
         </div>
     </ul>
   </nav>
+  {% endif %}
 {% endblock %}
 
 {% block footer %}
