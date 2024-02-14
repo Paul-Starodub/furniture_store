@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "main.apps.MainConfig",
     "goods.apps.GoodsConfig",
+    "users.apps.UsersConfig",
 ]
 
 MIDDLEWARE = [
