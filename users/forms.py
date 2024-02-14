@@ -5,15 +5,17 @@ from django import forms
 
 class UserLoginForm(AuthenticationForm):
     username = forms.CharField(
+        label="Username",
         widget=forms.TextInput(
             attrs={
                 "autofocus": True,
                 "class": "form-control",
                 "placeholder": "Enter your username",
             }
-        )
+        ),
     )
     password = forms.CharField(
+        label="Password",
         widget=forms.PasswordInput(
             attrs={
                 "autocomplete": "current-password",
