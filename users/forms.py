@@ -5,9 +5,9 @@ from django import forms
 
 class UserLoginForm(AuthenticationForm):
     pass
-    # username = forms.CharField()
-    # password = forms.CharField()
-    #
-    # class Meta:
-    #     model = get_user_model()
-    #     fields = ("username", "password")  # it isn't necessary here
+    username = forms.CharField()
+    password = forms.CharField()
+
+    class Meta:
+        model = get_user_model()
+        fields = ("username", "password")  # it isn't necessary here
