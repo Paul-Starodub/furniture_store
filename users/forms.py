@@ -4,24 +4,10 @@ from django import forms
 
 
 class UserLoginForm(AuthenticationForm):
-    username = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-                "autofocus": True,
-                "class": "form-control",
-                "placeholder": "Enter your username",
-            }
-        ),
-    )
-    password = forms.CharField(
-        widget=forms.PasswordInput(
-            attrs={
-                "autocomplete": "current-password",
-                "class": "form-control",
-                "placeholder": "Enter your password",
-            }
-        ),
-    )
+    pass
+    username = forms.CharField()
+    password = forms.CharField()
 
     class Meta:
         model = get_user_model()
+        fields = ("username", "password")  # it isn't necessary here
