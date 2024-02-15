@@ -43,4 +43,5 @@ def profile(request: HttpRequest) -> HttpResponse:
 
 
 def logout(request: HttpRequest) -> HttpResponse:
-    pass
+    auth.logout(request)
+    return HttpResponseRedirect(reverse("main:index"))
