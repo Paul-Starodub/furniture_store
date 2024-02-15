@@ -28,7 +28,9 @@ def registration(request: HttpRequest) -> HttpResponse:
         form = UserRegistrationForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse("users:login"))
+            user = form.instance
+            auth.login(request, user)
+            return HttpResponseRedirect(reverse("main:index"))
     else:
         form = UserRegistrationForm()
     context = {"title": "Home - Registration", "form": form}
