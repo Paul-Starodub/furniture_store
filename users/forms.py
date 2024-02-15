@@ -4,7 +4,8 @@ from django import forms
 
 
 class UserLoginForm(AuthenticationForm):
-    pass
+    username = forms.CharField()
+    password = forms.CharField()
 
 
 class UserRegistrationForm(UserCreationForm):
