@@ -3,7 +3,7 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from users.forms import UserLoginForm
+from users.forms import UserLoginForm, UserRegistrationForm
 
 
 def login(request: HttpRequest) -> HttpResponse:
@@ -24,7 +24,14 @@ def login(request: HttpRequest) -> HttpResponse:
 
 
 def registration(request: HttpRequest) -> HttpResponse:
-    context = {"title": "Home - Registration"}
+    if request.method == "POST":
+        form = UserRegistrationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse("users:login"))
+    else:
+        form = UserRegistrationForm()
+    context = {"title": "Home - Registration", "form": form}
     return render(request, "users/registration.html", context)
 
 
