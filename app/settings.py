@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "main.apps.MainConfig",
     "goods.apps.GoodsConfig",
     "users.apps.UsersConfig",
+    "carts.apps.CartsConfig",
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,4 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+LOGIN_URL = "user:login"

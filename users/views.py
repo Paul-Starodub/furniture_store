@@ -18,6 +18,8 @@ def login(request: HttpRequest) -> HttpResponse:
             if user and user.is_active:
                 auth.login(request, user)
                 messages.success(request, f"{cd["username"]} you are logged in")
+                if request.POST.get("next"):
+                    return HttpResponseRedirect(request.POST.get("next"))
                 return HttpResponseRedirect(reverse("main:index"))
     else:
         form = UserLoginForm()
