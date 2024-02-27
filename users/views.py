@@ -60,6 +60,10 @@ def profile(request: HttpRequest) -> HttpResponse:
     return render(request, "users/profile.html", context)
 
 
+def users_cart(request: HttpRequest) -> HttpResponse:
+    return render(request, "users/users_cart.html")
+
+
 @login_required
 def logout(request: HttpRequest) -> HttpResponse:
     messages.success(request, f"{request.user.username} you have been logged")
